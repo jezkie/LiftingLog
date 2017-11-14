@@ -1,7 +1,8 @@
 import React from 'react';
 import { Grid, Row, Col, Thumbnail, Button } from 'react-bootstrap/lib';
+import { Link } from 'react-router';
 
-const SessionItemList = ({listOfSessions, handleEdit}) => {
+const SessionItemList = ({ listOfSessions, handleEdit }) => {
   let sessions = listOfSessions.map((session, i) => {
     return (
       <Col xs={6} md={4} key={i}>
@@ -11,6 +12,7 @@ const SessionItemList = ({listOfSessions, handleEdit}) => {
           <p>
             <Button bsStyle="primary" onClick={handleEdit.bind(null, session)}>Edit</Button>&nbsp;
             <Button bsStyle="default">Start</Button>
+            <Link to={`/session/${session.id}`}>Edit</Link>
           </p>
         </Thumbnail>
       </Col>
@@ -19,10 +21,10 @@ const SessionItemList = ({listOfSessions, handleEdit}) => {
 
   return (
     <Grid>
-    <Row>
-      {sessions}
-    </Row>
-  </Grid>
+      <Row>
+        {sessions}
+      </Row>
+    </Grid>
   )
 }
 
