@@ -1,12 +1,20 @@
 import React, { Component } from 'react';
 
 class SessionEdit extends Component {
+
+    componentDidMount() {
+        const { fetchSelectedSession } = this.props;
+        const { workout } = this.props.params;
+
+        fetchSelectedSession(workout);
+    }
+
     render() {
-        const {params} = this.props;
-        const {workout} = params;
+        const { data } = this.props;
+        const { workout } = data.session;
         return (
             <div>
-                <h1>Selected workout {workout}</h1>
+                <h1>Selected workout {data == null ? 'Loading' : workout}</h1>
             </div>
         );
     }

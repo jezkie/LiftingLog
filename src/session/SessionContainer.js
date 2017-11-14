@@ -3,7 +3,6 @@ import { fetchSessions } from './SessionAction';
 import Home from '../app/Home';
 
 const mapStateToProps = (state) => {
-    console.log(state);
     return { data: state.sessionsReducer };
 }
 

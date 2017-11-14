@@ -28,3 +28,10 @@ export function fetchSessions() {
         }
     }
 }
+
+export function fetchSelectedSession(workout) {
+    return {
+        type: 'GET_SELECTED_SESSION',
+        payload: workout
+    }
+}

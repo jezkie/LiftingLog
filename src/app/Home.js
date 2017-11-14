@@ -28,7 +28,6 @@ class Home extends Component {
   componentDidMount() {
     const { fetchSessions } = this.props;
     fetchSessions();
-    console.log(this.props);
   }
 
   render() {
