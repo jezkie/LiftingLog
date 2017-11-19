@@ -1,41 +1,50 @@
 import React from 'react';
-import { linkExerciseState } from '../component/linkState';
+import { linkExerciseState, linkExerciseInlineState } from '../component/linkState';
 import TextInput from '../component/TextInput';
-import { Form, FormGroup, Col, ControlLabel, Panel, Grid, Row } from "react-bootstrap";
+import InlineText from '../component/InlineText';
+import { Form, FormGroup, Col, ControlLabel, Panel, Grid, Row } from 'react-bootstrap';
+import InlineEdit from 'react-edit-inline';
 
 const ExerciseEdit = ({ listOfexercises, _this }) => {
     let exercises = listOfexercises.map((exercise, i) => {
+        let panelHeader = (
+            <Row>
+                <Col>
+                    <InlineText valueLink={linkExerciseState(_this, 'name', i)} />
+                </Col>
+            </Row>
+        );
         return (
-            <Col sm={8} smOffset={2} key={i}>
-                <Panel header={exercise.name} bsStyle="primary">
-                    <Form horizontal>
-                        <FormGroup controlId={`formSets${i}`}>
-                            <Col componentClass={ControlLabel} sm={1}>
-                                Sets
-                                        </Col>
-                            <Col sm={3}>
-                                <TextInput valueLink={linkExerciseState(_this, 'sets', i)} type='number' />
+            <Row key={`${exercise.name}${i}`}>
+                <Col lg={8} lgOffset={2}>
+                    <Panel header={panelHeader}>
+                        <Form horizontal={false}>
+                            <Col lgOffset={1}>
+                            <FormGroup controlId={`formSets${i}`}>
+                                <Col componentClass={ControlLabel} lg={2}>
+                                    Sets
+                                </Col>
+                                <Col lg={3}>
+                                    <TextInput valueLink={linkExerciseState(_this, 'sets', i)} type='number' />
+                                </Col>
+                            </FormGroup>
+                            <FormGroup controlId={`formReps${i}`}>
+                                <Col componentClass={ControlLabel} lg={2}>Reps</Col>
+                                <Col lg={3}>
+                                    <TextInput valueLink={linkExerciseState(_this, 'reps', i)} type='number' />
+                                </Col>
+                            </FormGroup>
                             </Col>
-                        </FormGroup>
-                        <FormGroup controlId={`formReps${i}`}>
-                            <Col componentClass={ControlLabel} sm={1}>
-                                Reps
-                                        </Col>
-                            <Col sm={3}>
-                                <TextInput valueLink={linkExerciseState(_this, 'reps', i)} type='number' />
-                            </Col>
-                        </FormGroup>
-                    </Form>
-                </Panel>
-            </Col>
+                        </Form>
+                    </Panel>
+                </Col>
+            </Row>
         )
     })
 
     return (
         <Grid>
-            <Row>
-                {exercises ? exercises : null}
-            </Row>
+            {exercises ? exercises : null}
         </Grid>
     )
 };

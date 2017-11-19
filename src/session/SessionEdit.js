@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Form, FormGroup, Col, ControlLabel } from "react-bootstrap";
+import { Form, FormGroup, Col, ControlLabel, PageHeader } from "react-bootstrap";
 import { linkState } from '../component/linkState';
 import TextInput from '../component/TextInput';
 import ExerciseEdit from '../exercise/ExerciseEdit';
@@ -39,24 +39,26 @@ class SessionEdit extends Component {
         const { input } = this.state;
         return (
             <div>
-                <h1>Maintain {input.workout}</h1>
+                <PageHeader><small>Maintain</small> {input.workout}</PageHeader>
                 <Form horizontal>
-                    <FormGroup controlId="formWorkout">
-                        <Col componentClass={ControlLabel} sm={4}>
-                            Workout
-                        </Col>
-                        <Col sm={5}>
-                            <TextInput valueLink={linkState(this, 'workout')} placeholder='Workout' type='text' />
-                        </Col>
-                    </FormGroup>
-                    <FormGroup controlId="formDescription">
-                        <Col componentClass={ControlLabel} sm={4}>
-                            Description
-                        </Col>
-                        <Col sm={5}>
-                            <TextInput valueLink={linkState(this, 'description')} placeholder='Description' type='text' />
-                        </Col>
-                    </FormGroup>
+                    <Col lg={8} lgOffset={3}>
+                        <FormGroup controlId="formWorkout">
+                            <Col componentClass={ControlLabel} lg={3}>
+                                Workout
+                            </Col>
+                            <Col lg={3}>
+                                <TextInput valueLink={linkState(this, 'workout')} placeholder='Workout' type='text' />
+                            </Col>
+                        </FormGroup>
+                        <FormGroup controlId="formDescription">
+                            <Col componentClass={ControlLabel} lg={3}>
+                                Description
+                            </Col>
+                            <Col lg={3}>
+                                <TextInput valueLink={linkState(this, 'description')} placeholder='Description' type='text' />
+                            </Col>
+                        </FormGroup>
+                    </Col>
                 </Form>
                 {<ExerciseEdit listOfexercises={input.exercises} _this={this} />/**/}
             </div>
