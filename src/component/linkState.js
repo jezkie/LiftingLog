@@ -1,11 +1,12 @@
 export function linkState(component, attr) {
+    let newInput
     return {
         value: component.state.input[attr],
         set(x) {
             component.setState({
                 input: {
-                    [attr]: x,
-                    exercises: component.state.input.exercises
+                    ...component.state.input,
+                    [attr]: x
                 }
             }, () => {
                 console.log('linkState on change handler => input', component.state.input);
@@ -29,15 +30,16 @@ export function linkExerciseState(component, attr, index) {
             }
             
             exercises[index] = exercise;
-
+            //merge object
             component.setState({
-                input: { 
-                    exercises: exercises, 
-                    description: component.state.input.description, 
-                    workout: component.state.input.workout }
+                input: Object.assign(
+                    {},
+                    component.state.input,
+                    {exercises: exercises}
+                )
             }, () => {
                 console.log('linkExerciseState on change handler => input', component.state.input);
-            });
+            })
         }
     }
 }
