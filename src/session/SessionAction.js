@@ -29,9 +29,9 @@ export function fetchSessions() {
     }
 }
 
-export function fetchSelectedSession(workout) {
+export function fetchSelectedSession(workoutId) {
     return {
         type: 'GET_SELECTED_SESSION',
-        payload: workout
+        payload: workoutId
     }
 }

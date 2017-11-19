@@ -19,7 +19,7 @@ ReactDOM.render(
                 <Route path='/' components={Main}>
                     <IndexRoute component={SessionContainer} />
                     <Route path='about' components={SessionContainer} />
-                    <Route path='session/:workout' components={SessionEditContainer} />
+                    <Route path='session/:workoutId' components={SessionEditContainer} />
                 </Route>
             </Router>
         </Provider>

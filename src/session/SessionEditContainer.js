@@ -8,8 +8,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        fetchSelectedSession: (workout) => {
-            dispatch(fetchSelectedSession(workout));
+        fetchSelectedSession: (workoutId) => {
+            dispatch(fetchSelectedSession(workoutId));
         }
     }
 }
