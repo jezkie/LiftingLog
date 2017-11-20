@@ -5,7 +5,6 @@ import { LinkContainer } from 'react-router-bootstrap';
 
 const SessionItemList = ({ listOfSessions, handleEdit }) => {
   let sessions = listOfSessions.map((session, i) => {
-    let url = `/session/${session.id}`
     return (
       <Col xs={6} md={4} key={i}>
         <Thumbnail src={session.imgUrl} alt="242x200">
@@ -14,7 +13,7 @@ const SessionItemList = ({ listOfSessions, handleEdit }) => {
           <p>
             {/*<Button bsStyle="primary" onClick={handleEdit.bind(null, session)}>Edit</Button>&nbsp;*/}
             <Button bsStyle="primary">Start</Button>&nbsp;
-            <LinkContainer to={url} >
+            <LinkContainer to={`/session/${session.id}`} >
               <Button bsStyle="default">Edit</Button>
             </LinkContainer>
 

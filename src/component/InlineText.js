@@ -6,7 +6,7 @@ const InlineText = ({ valueLink, ...props }) => {
         <InlineEdit 
             text={valueLink.value}
             paramName='name'
-            change={valueLink.set}>
+            change={p => valueLink.set(p.name)}>
         </InlineEdit>
     );
 };
