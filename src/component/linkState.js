@@ -1,5 +1,4 @@
 export function linkState(component, attr) {
-    let newInput
     return {
         value: component.state.input[attr],
         set(x) {

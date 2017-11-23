@@ -1,9 +1,8 @@
 import React from 'react';
-import { linkExerciseState, linkExerciseInlineState } from '../component/linkState';
+import { linkExerciseState } from '../component/linkState';
 import TextInput from '../component/TextInput';
 import InlineText from '../component/InlineText';
 import { Form, FormGroup, Col, ControlLabel, Panel, Grid, Row } from 'react-bootstrap';
-import InlineEdit from 'react-edit-inline';
 
 const ExerciseEdit = ({ listOfexercises, _this }) => {
     let exercises = listOfexercises.map((exercise, i) => {

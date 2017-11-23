@@ -12,19 +12,6 @@ import SessionContainer from './session/SessionContainer';
 
 import registerServiceWorker from './registerServiceWorker';
 
-import * as firebase from 'firebase';
-
-const fircnf = {
-    apiKey: "AIzaSyAaTS7m_qGPDWrmOQKzhacLaFUasUKY_PE",
-    authDomain: "spotter-8a6d5.firebaseapp.com",
-    databaseURL: "https://spotter-8a6d5.firebaseio.com",
-    projectId: "spotter-8a6d5",
-    storageBucket: "spotter-8a6d5.appspot.com",
-    messagingSenderId: "666744978054"
-  }
-
-firebase.initializeApp(fircnf);
-
 ReactDOM.render(
     <div>
         <Provider store={SessionStore}>
